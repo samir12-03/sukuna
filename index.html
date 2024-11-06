@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginPage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onclick="return playAudio()">
+    <div class="MainContainer">
+        <video autoplay muted loop class="Backvideo">
+            <source src="Video1.mp4" type="video/mp4">
+        </video>
+        
+        <div class="FormBox">
+            <form class="form1" method="post">
+                <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input id="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input id="password" type="password" class="form-control" id="exampleInputPassword1" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="Btn1">Submit</button>
+                <button type="reset" class="btn btn-primary">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        function playAudio(){
+            let audio = new Audio("Audio1.mp3");
+            audio.loop = true;
+            audio.play();
+        }
+
+        function Validation(){
+            const userInput = document.getElementById("username");
+            const user = userInput.value;
+            const passInput = document.getElementById("password");
+            const pass = passInput.value;
+
+            if(user === "Admin" && pass === "Admin@123"){
+                window.location.href = "https://khushalprogrammer.github.io/portfolio/";
+            }
+            else{
+                alert("Username and password is incorrect");
+            }
+        }
+
+        const button = document.getElementById("Btn1");
+        button.addEventListener("click", Validation);
+    </script>
+</body>
+</html>
